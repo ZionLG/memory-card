@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import cardsData from "../cards";
 import Card from "./Card";
-import uniqid from "uniqid";
 
 const Game = () => {
   const [score, setScore] = useState(0);
@@ -23,7 +22,6 @@ const Game = () => {
 
   const handleOnClick = (e) => {
     setCardStack((pervStack) => shuffle(pervStack));
-
     setScore((pervScore) => pervScore + 1);
   };
 
@@ -33,11 +31,9 @@ const Game = () => {
       <p className="mb-5">Best Score: {bestScore}</p>
       <div className="grid grid-cols-5 gap-8 mb-6">
         {cardStack.map((obj) => {
-          let id = uniqid();
           return (
             <Card
-              key={id}
-              id={id}
+              key={obj.name}
               img={obj.img}
               name={obj.name}
               onClick={handleOnClick}

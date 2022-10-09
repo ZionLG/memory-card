@@ -1,7 +1,6 @@
 const Card = (props) => {
   return (
     <div
-      data-id={props.id}
       onClick={props.onClick}
       className="hover:cursor-pointer hover:shadow-2xl p-6 shadow-xl text-center flex-col flex gap-10"
     >
