@@ -22,7 +22,15 @@ const Game = () => {
 
   const handleOnClick = (e) => {
     setCardStack((pervStack) => shuffle(pervStack));
-    setScore((pervScore) => pervScore + 1);
+    let curId = e.currentTarget.dataset.id;
+    if (curCards.includes(curId)) {
+      setCurCards([]);
+      if (score > bestScore) setBestScore(score);
+      setScore(0);
+    } else {
+      setCurCards((pervStack) => [...pervStack, curId]);
+      setScore((pervScore) => pervScore + 1);
+    }
   };
 
   return (
